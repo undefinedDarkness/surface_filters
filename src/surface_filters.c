@@ -206,7 +206,11 @@ static const struct luaL_Reg surface_filters[] = {
 };
 
 int luaopen_surface_filters_surface_filters(lua_State* L) {
+	#if defined(LUA_VERSION_NUM) && LUA_VERSION_NUM >= 520
 	luaL_newlib(L, surface_filters);
+	#else
+	luaL_register(L, NULL, surface_filters);
+	#endif
 
 	return 1;
 }
