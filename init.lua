@@ -3,7 +3,11 @@ local gears = require("gears")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
 
-local surface_filters = require("surface_filters.surface_filters")
+local current_path = gears.filesystem.get_configuration_dir() .. (...):gsub("%.", "/") .. '/?.so;'
+require('naughty').notify { text = current_path }
+package.cpath = current_path .. package.cpath
+local surface_filters = require('surface_filters')
+
 local Gdk, cairo
 do
 	local lgi = require("lgi")
