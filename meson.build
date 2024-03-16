@@ -16,7 +16,7 @@ dependencies = [
 	dependency('gdk-3.0'),
 	dependency('cairo'),
 	# Change this to 'lua5.X' if you want to target another version
-	dependency('luajit'),
+	dependency('lua-5.1'),
 ]
 
 shared_library(
